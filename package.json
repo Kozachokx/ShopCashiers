@@ -2,7 +2,7 @@
   "name": "shopcashiers",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.ts",
   "scripts": {
     "lint": "eslint ./src",
     "lint:fix": "eslint ./src --fix",
