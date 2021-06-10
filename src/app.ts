@@ -7,14 +7,10 @@ const PORT = process.env.PORT || 5000
 
 app.use(express.json())
 
-// app.get('/', (req,res) => {
-//     res.send('Works fine');
-// } );
 
+//Routes for Cashier
 const CashierController = require('./controller/cashier_controller')
-// import { ShopController } from './db'
 
-// const CashierController = require('./db')
 router.post('/cashier', CashierController.createCashier)
 router.get('/cashiers', CashierController.getAllCashiers)
 
@@ -26,13 +22,25 @@ router.post('/shop', ShopController.createShop)
 router.get('/shops', ShopController.getAllShops)
 router.get('/shops/:id', ShopController.getShopById)
 router.delete('/shops/:id', ShopController.deleteShop)
+router.delete('/shops/all', ShopController.deleteAllShops)
 
 
 
 // Routes for CashRegister
 const CashRegisterController = require('./controller/chashregister_controller')
-router.get('/cashregisters', CashRegisterController.getAllCashRegisters)
+
 router.post('/cashregister', CashRegisterController.createCashRegister)
+router.get('/cashregisters', CashRegisterController.getAllCashRegisters)
+router.get('/cashregisters/:id', CashRegisterController.getCashRegisterById)
+router.delete('/cashregister/:id', CashRegisterController.deleteCashRegisterById)
+router.delete('/cashregister/all', CashRegisterController.deleteAllCashRegisters)
+
+
+//Routes for CustomController
+const CustomController = require('./controller/custom_controller')
+
+router.get('/target1', CustomController.getTargetCashiers1)
+router.get('/target2', CustomController.getTargetCashiers2)
 
 
 

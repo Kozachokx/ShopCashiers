@@ -54,17 +54,3 @@ export interface ICashRegister {
     registerNumber: Number
     shop_id: Number
 }
-
-
-console.log()
-
-/*
-
-Monday : Night
-Tuesday : Night
-Thursday : Day
-Saturday : Night
-
-*/
-
-// const newArr: Array<Days> = []
