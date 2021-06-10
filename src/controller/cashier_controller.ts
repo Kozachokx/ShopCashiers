@@ -1,6 +1,5 @@
 const pool = require('../db')
 
-import { Console } from 'console'
 import { ICashier } from '../models'
 
 class CashierController {
@@ -10,7 +9,8 @@ class CashierController {
 
             newCashier.duties.length = newCashier.workingDays.length
             newCashier.cashregister_ids.length = newCashier.workingDays.length
-            // Refill some fields if they exists
+
+            // Main field - Working_Days. Correct Dutyies and reg_ids to workingdays.lenght. Fill empty fields with default [0] 
             for(let i = 0; i < newCashier.workingDays.length; i++){
                 !!newCashier.duties[i] ? newCashier.duties[i] : newCashier.duties[i] = newCashier.duties[0]
                 !!newCashier.cashregister_ids[i] ? newCashier.cashregister_ids[i] : newCashier.cashregister_ids[i] = newCashier.cashregister_ids[0]
@@ -24,7 +24,7 @@ class CashierController {
             }
             // res.json(newUser)
 
-            res.status(200).json({ "status": true, newCashier, message: "Successfully added!" })
+            res.status(200).json({newCashier, message: "Successfully added!" })
         } catch (error) {
             res.status(500).send(error.message)
         }
